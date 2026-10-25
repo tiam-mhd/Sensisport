@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Search, ShoppingBag, UserRound, X } from "lucide-react";
@@ -20,6 +21,7 @@ export function SiteHeader({ locale, labels }: { locale: Locale; labels: { home:
   return <header className="site-header">
     <div className="header-inner container">
       <Link className="wordmark" href={prefix} aria-label={labels.brandName}>
+        <Image src="/images/instagram/profile.jpg" alt="" width={42} height={42} priority />
         <span><strong>{labels.brandName}</strong><small>{labels.temporaryMark}</small></span>
       </Link>
       <nav className={`main-nav${open ? " is-open" : ""}`} aria-label={locale === "fa" ? "ناوبری اصلی" : "Main navigation"}>

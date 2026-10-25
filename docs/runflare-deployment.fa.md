@@ -116,7 +116,10 @@ CLI از `.gitignore` پیروی می‌کند؛ command `runflare deploy -y` ف
 ```sh
 cd /app
 npm run db:migrate
+npm run db:seed-instagram
 ```
+
+فرمان دوم را پس از migration اجرا کنید تا دسته‌ها، ۱۶ محصولِ استعلام‌محور، ۲۴ منبع پست و پیوند تصاویر محلی در کاتالوگ ثبت شوند. اجرای دوبارهٔ آن رکورد تکراری نمی‌سازد و قیمت/موجودی یا اطلاعات تأییدنشدهٔ ارسال و ضمانت را حدس نمی‌زند.
 
 3. موقتاً در Secrets پروژه `ADMIN_PASSWORD` را بسازید و در متغیرهای محیطی سرویس `ADMIN_EMAIL` و `ADMIN_PASSWORD` را اضافه کنید. برای password از Mode=Secret و برای هر دو Use case=Running استفاده کنید. ذخیره کنید و اگر پنل درخواست کرد سرویس را restart کنید.
 4. در همان Terminal مدیر اول را بسازید:

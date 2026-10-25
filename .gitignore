@@ -6,6 +6,7 @@ dist/
 .env
 .env.*
 !.env.example
+0-DOCS/SensiSport_Codex_SourcePack.zip
 *.log
 npm-debug.log*
 playwright-report/

@@ -1,0 +1,309 @@
+{
+  "schema_version": "1.0",
+  "capture_date": "2026-10-25",
+  "currency": "unknown",
+  "items": [
+    {
+      "id": "P001",
+      "name_fa": "بوکن حرفه‌ای",
+      "name_en": "Professional Bokken",
+      "category_fa": "سلاح تمرینی چوبی",
+      "post_ids": [
+        "Devsu-1O7Gp",
+        "DKLzr3QMeLD"
+      ],
+      "evidence_fa": [
+        "پست ۲۰۲۶: خوش‌دست و باکیفیت؛ تصویر: سبک و مقاوم.",
+        "پست ۲۰۲۵: مناسب تمرین تکنیک‌های شمشیر و به‌عنوان سلاح امن برای تمرین."
+      ],
+      "variants_fa": [],
+      "source_price_text": null,
+      "price_status": "not_listed",
+      "catalog_status": "recent_public_posts_needs_seller_confirmation",
+      "notes_fa": "مشخصات ابعاد، نوع چوب، وزن و قیمت در کپشن‌های در دسترس نیامده است."
+    },
+    {
+      "id": "P002",
+      "name_fa": "بادبزن رزمی / تسن حرفه‌ای",
+      "name_en": "Martial Arts Fan / Tessen",
+      "category_fa": "تسن و بادبزن",
+      "post_ids": [
+        "DbIY7GEMSoo",
+        "DbFawu4sAv-"
+      ],
+      "evidence_fa": [
+        "دو پست محصول؛ سفارش در کپشن از طریق دایرکت یا ایتا ذکر شده.",
+        "تصویر یکی از پست‌ها سه رنگ قرمز، آبی و مشکی را ذکر می‌کند."
+      ],
+      "variants_fa": [
+        "قرمز",
+        "آبی",
+        "مشکی"
+      ],
+      "source_price_text": null,
+      "price_status": "not_listed",
+      "catalog_status": "recent_public_posts_needs_seller_confirmation",
+      "notes_fa": "پست دیگر تنوع طرح/رنگ را نشان می‌دهد؛ نام همهٔ رنگ‌ها قطعی نیست."
+    },
+    {
+      "id": "P003",
+      "name_fa": "ست بوگوکن دو / تجهیزات کندو",
+      "name_en": "Bogu Kendo Set",
+      "category_fa": "محافظ و زره تمرینی",
+      "post_ids": [
+        "DPvUtAcDELu"
+      ],
+      "evidence_fa": [
+        "کپشن: «بوگوکن دو»؛ نام برند در کپشن: توزاندو.",
+        "تصویر یک ست محافظ تمرین شامل کلاه و تجهیزات بدن را نشان می‌دهد."
+      ],
+      "variants_fa": [],
+      "source_price_text": null,
+      "price_status": "not_listed",
+      "catalog_status": "public_post_needs_seller_confirmation",
+      "notes_fa": "نام‌گذاری دقیق مدل و اجزای داخل بسته از فروشنده تأیید شود."
+    },
+    {
+      "id": "P004",
+      "name_fa": "کیف سلاح نینجا",
+      "name_en": "Ninja Weapon Bag",
+      "category_fa": "کیف و حمل تجهیزات",
+      "post_ids": [
+        "DOnWP6kjgDF",
+        "DOnWE_3jmKG"
+      ],
+      "evidence_fa": [
+        "دو پست با کپشن نزدیک به هم.",
+        "کپشن جای مخصوص برای چوب، شمشیر، نانچیکو، شوریکن و موارد دیگر را ذکر می‌کند."
+      ],
+      "variants_fa": [],
+      "source_price_text": null,
+      "price_status": "not_listed",
+      "catalog_status": "public_posts_needs_seller_confirmation",
+      "notes_fa": "ابعاد، جنس، گنجایش و قیمت ثبت نشده است."
+    },
+    {
+      "id": "P005",
+      "name_fa": "نانچیکو حرفه‌ای",
+      "name_en": "Professional Nunchaku",
+      "category_fa": "سلاح تمرینی",
+      "post_ids": [
+        "DLo6x28sYny"
+      ],
+      "evidence_fa": [
+        "کپشن: حرفه‌ای و خوش‌دست؛ قیمت از دایرکت استعلام شود.",
+        "تصویر تنوع رنگ‌بندی را نشان می‌دهد."
+      ],
+      "variants_fa": [],
+      "source_price_text": "قیمت = دایرکت",
+      "price_status": "quote_by_direct_message_in_source_post",
+      "catalog_status": "public_post_needs_seller_confirmation",
+      "notes_fa": "نوع، ابعاد، جنس و قیمت در دسترس نیست."
+    },
+    {
+      "id": "P006",
+      "name_fa": "آرم پشت کمر نینجوتسو",
+      "name_en": "Ninjutsu Waist Emblem Patch",
+      "category_fa": "نشان و پچ",
+      "post_ids": [
+        "DZ4QnQSMAaG"
+      ],
+      "evidence_fa": [
+        "پست و تصویر دربارهٔ آرم پشت کمر/آرم مخصوص سبک نینجوتسو هستند.",
+        "متن روی تصویر شامل NINJUTSU است."
+      ],
+      "variants_fa": [],
+      "source_price_text": null,
+      "price_status": "not_listed",
+      "catalog_status": "public_post_needs_seller_confirmation",
+      "notes_fa": "جنس، ابعاد، روش نصب و قیمت اعلام نشده است."
+    },
+    {
+      "id": "P007",
+      "name_fa": "لباس جین نینجا",
+      "name_en": "Denim Ninja Uniform",
+      "category_fa": "لباس رزمی",
+      "post_ids": [
+        "DJlplUcu-1z"
+      ],
+      "evidence_fa": [
+        "کپشن آن را خوش‌فرم، باکیفیت و شیک توصیف می‌کند.",
+        "تصویر چند طیف رنگی تیره/آبی را نشان می‌دهد."
+      ],
+      "variants_fa": [
+        "رنگ‌های متنوع (نام دقیق تأیید نشده)"
+      ],
+      "source_price_text": null,
+      "price_status": "not_listed",
+      "catalog_status": "public_post_needs_seller_confirmation",
+      "notes_fa": "سایزبندی، جنس دقیق، اقلام همراه و موجودی باید تأیید شود."
+    },
+    {
+      "id": "P008",
+      "name_fa": "لباس اعلا مشکی نینجا",
+      "name_en": "Premium Black Ninja Uniform",
+      "category_fa": "لباس رزمی",
+      "post_ids": [
+        "DJjpJXUu4hy"
+      ],
+      "evidence_fa": [
+        "تصویر: لباس اعلا مشکی و پارچهٔ فاستونی درجه‌یک کت‌وشلواری.",
+        "کپشن مخاطب را مربیان، ارشدها و افراد حرفه‌ای معرفی می‌کند."
+      ],
+      "variants_fa": [],
+      "source_price_text": null,
+      "price_status": "not_listed",
+      "catalog_status": "public_post_needs_seller_confirmation",
+      "notes_fa": "کپشن در متن خام به‌صورت «لباس مشکل اعلا» ثبت شده؛ تصویر عنوان «لباس اعلا مشکی» دارد. عنوان محصول در این رکورد با تکیه بر متن تصویر نرمال شده است."
+    },
+    {
+      "id": "P009",
+      "name_fa": "کامای حرفه‌ای",
+      "name_en": "Professional Kama",
+      "category_fa": "سلاح تمرینی",
+      "post_ids": [
+        "DDl8bSoO3h7"
+      ],
+      "evidence_fa": [
+        "کپشن: دستهٔ چوب مرغوب و خوش‌دست؛ تیغه فلزی اما تیز نیست.",
+        "فروشنده در کپشن ادعای مجاز بودن برای مسابقات را مطرح کرده؛ این ادعا در این بسته مستقلاً تأیید نشده است.",
+        "تصویر چند رنگ را نشان می‌دهد."
+      ],
+      "variants_fa": [
+        "رنگ‌های متنوع (نام دقیق تأیید نشده)"
+      ],
+      "source_price_text": null,
+      "price_status": "not_listed",
+      "catalog_status": "public_post_needs_seller_confirmation",
+      "notes_fa": "ادعای مطابقت مسابقه/فدراسیون، ایمنی و قوانین را پیش از انتشار یا فروش با منبع رسمی و فروشنده بررسی کنید."
+    },
+    {
+      "id": "P010",
+      "name_fa": "هانبو و بیکن / بوکن",
+      "name_en": "Hanbo and Biken/Bokken",
+      "category_fa": "سلاح تمرینی چوبی",
+      "post_ids": [
+        "CyACiPSIjGb"
+      ],
+      "evidence_fa": [
+        "کپشن قدیمی از تولید مجدد هانبو و بیکن خبر می‌دهد.",
+        "تصویر دو سلاح تمرینی چوبی را نشان می‌دهد."
+      ],
+      "variants_fa": [],
+      "source_price_text": null,
+      "price_status": "not_listed",
+      "catalog_status": "historical_announcement_verify_current_availability",
+      "notes_fa": "این یک اعلام تولید مجدد در ۲۰۲۳ است و موجودی یا وضعیت فعلی را ثابت نمی‌کند؛ راه‌های تماس داخل این کپشن قدیمی هستند."
+    },
+    {
+      "id": "P011",
+      "name_fa": "تیشرت چاپ سفارشی",
+      "name_en": "Custom Printed T-Shirt",
+      "category_fa": "پوشاک و چاپ سفارشی",
+      "post_ids": [
+        "CebL-o9IihJ"
+      ],
+      "evidence_fa": [
+        "کپشن امکان چاپ طرح دلخواه را بیان می‌کند.",
+        "جنس ذکرشده: یک‌رو پنبه، نخی و خنک."
+      ],
+      "variants_fa": [
+        "طرح چاپ سفارشی"
+      ],
+      "source_price_text": null,
+      "price_status": "not_listed",
+      "catalog_status": "historical_post_verify_current_offer",
+      "notes_fa": "جزئیات سایز، رنگ تیشرت، قیمت و شرایط چاپ مشخص نیست."
+    },
+    {
+      "id": "P012",
+      "name_fa": "روبند دست با جیب مخفی",
+      "name_en": "Hand Wrap with Hidden Pocket",
+      "category_fa": "اکسسوری و نگهداری تجهیزات",
+      "post_ids": [
+        "CaKkJhAIb3H"
+      ],
+      "evidence_fa": [
+        "کپشن: دارای جیب مخفی برای سلاح‌های نینجا."
+      ],
+      "variants_fa": [],
+      "source_price_text": "۸۵ تومان",
+      "price_status": "historical_ambiguous_unit_do_not_publish_as_current",
+      "catalog_status": "historical_post_verify_current_offer",
+      "notes_fa": "قیمت پست مربوط به ۲۰۲۲ است و واحد/مقیاس آن روشن نیست؛ فقط به‌عنوان متن تاریخی منبع نگه داشته شده است."
+    },
+    {
+      "id": "P013",
+      "name_fa": "کاتانا / شینکن وارداتی",
+      "name_en": "Imported Katana / Shinken",
+      "category_fa": "شمشیر",
+      "post_ids": [
+        "CUp3P1FIlAT"
+      ],
+      "evidence_fa": [
+        "کپشن قدیمی محصول را وارداتی، خوش‌دست و با تعداد محدود توصیف می‌کند."
+      ],
+      "variants_fa": [],
+      "source_price_text": null,
+      "price_status": "not_listed",
+      "catalog_status": "historical_post_verify_current_offer",
+      "notes_fa": "قیمت، موجودی، جنس، اندازه و شرایط ارسال در منبع ثبت نشده است."
+    },
+    {
+      "id": "P014",
+      "name_fa": "کاتانا سفارشی (شینکن / آی‌آی‌تو)",
+      "name_en": "Custom Katana (Shinken / Iaido)",
+      "category_fa": "شمشیر سفارشی",
+      "post_ids": [
+        "CTEfLinIdnP",
+        "CQbExTpJuhC"
+      ],
+      "evidence_fa": [
+        "کپشن امکان انتخاب طرح/رنگ تسوبا و غلاف را ذکر می‌کند.",
+        "ریلز قدیمی‌تر هم ساخت سفارشی با انتخاب طرح و رنگ را می‌گوید."
+      ],
+      "variants_fa": [
+        "طرح/رنگ تسوبا و غلاف به انتخاب خریدار، طبق کپشن تاریخی"
+      ],
+      "source_price_text": "دایرکت",
+      "price_status": "historical_quote_by_direct_message",
+      "catalog_status": "historical_post_verify_current_offer",
+      "notes_fa": "موجودی، مشخصات و شرایط سفارشی‌سازی فعلی را فروشنده تأیید کند."
+    },
+    {
+      "id": "P015",
+      "name_fa": "شی‌شین‌بو",
+      "name_en": "Shi-shin-bo",
+      "category_fa": "سلاح تمرینی",
+      "post_ids": [
+        "CUKRjc1oijb"
+      ],
+      "evidence_fa": [
+        "کپشن: خوش‌دست و زیبا، مناسب اجرای تکنیک‌های سنتی و مدرن نینجا."
+      ],
+      "variants_fa": [],
+      "source_price_text": "15 تومان",
+      "price_status": "historical_ambiguous_unit_do_not_publish_as_current",
+      "catalog_status": "historical_post_verify_current_offer",
+      "notes_fa": "قیمت پست ۲۰۲۱ است و واحد/مقیاس آن روشن نیست؛ به‌عنوان قیمت فعلی استفاده نشود."
+    },
+    {
+      "id": "P016",
+      "name_fa": "کامای چوبی",
+      "name_en": "Wooden Kama",
+      "category_fa": "سلاح تمرینی چوبی",
+      "post_ids": [
+        "CPkAVEcJw1A"
+      ],
+      "evidence_fa": [
+        "کپشن: چوب مرغوب، زیبا و خوش‌دست."
+      ],
+      "variants_fa": [],
+      "source_price_text": "140 تومان",
+      "price_status": "historical_ambiguous_unit_do_not_publish_as_current",
+      "catalog_status": "historical_post_verify_current_offer",
+      "notes_fa": "قیمت پست ۲۰۲۱ است و واحد/مقیاس آن روشن نیست؛ به‌عنوان قیمت فعلی استفاده نشود."
+    }
+  ],
+  "usage_note_fa": "این فهرست سرنخ محصول برگرفته از پست‌های عمومی است، نه کاتالوگ موجودی/قیمت تأییدشده."
+}

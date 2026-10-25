@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/shop">): Promise<Metadata> {
   const { locale } = await params;
-  return { title: locale === "fa" ? "فروشگاه" : "Shop", description: locale === "fa" ? "محصولات تأییدشدهٔ Sensi Sport" : "Verified Sensi Sport products" };
+  return { title: locale === "fa" ? "فروشگاه" : "Shop", description: locale === "fa" ? "محصولات معرفی‌شده در پست‌های عمومی سنسی؛ استعلام قیمت و موجودی روز" : "Products featured in Sensi public posts; ask about current price and availability" };
 }
 
 export default async function ShopPage({ params, searchParams }: PageProps<"/[locale]/shop">) {

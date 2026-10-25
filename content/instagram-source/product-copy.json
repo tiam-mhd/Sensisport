@@ -1,0 +1,140 @@
+{
+  "contact": {
+    "phone_display": "0913 369 39 35",
+    "phone_href": "+989133693935",
+    "phone_source_post_id": "Devsu-1O7Gp",
+    "phone_source_date": "2026-10-20",
+    "instagram_url": "https://www.instagram.com/sensi_sport/",
+    "telegram_url": "https://t.me/Sensi_Sport",
+    "eitaa_mentioned": true,
+    "eitaa_url": null,
+    "eitaa_note_fa": "ایتا در کپشن دو پست سال ۲۰۲۶ نام برده شده، اما شناسه یا پیوند رسمی در بستهٔ منبع نبود."
+  },
+  "categories": {
+    "سلاح تمرینی چوبی": { "slug": "wooden-training-weapons", "name_en": "Wooden training weapons" },
+    "تسن و بادبزن": { "slug": "tessen-and-fans", "name_en": "Tessen and martial arts fans" },
+    "محافظ و زره تمرینی": { "slug": "protective-gear", "name_en": "Training protective gear" },
+    "کیف و حمل تجهیزات": { "slug": "weapon-bags", "name_en": "Weapon bags and carrying gear" },
+    "سلاح تمرینی": { "slug": "training-weapons", "name_en": "Training weapons" },
+    "نشان و پچ": { "slug": "patches-and-emblems", "name_en": "Patches and emblems" },
+    "لباس رزمی": { "slug": "martial-arts-apparel", "name_en": "Martial arts apparel" },
+    "پوشاک و چاپ سفارشی": { "slug": "custom-printed-apparel", "name_en": "Custom printed apparel" },
+    "اکسسوری و نگهداری تجهیزات": { "slug": "gear-accessories", "name_en": "Equipment accessories" },
+    "شمشیر": { "slug": "swords", "name_en": "Swords" },
+    "شمشیر سفارشی": { "slug": "custom-swords", "name_en": "Custom swords" }
+  },
+  "items": [
+    {
+      "id": "P001", "slug": "professional-bokken", "featured": true, "confidence": "high",
+      "description_fa": "دو پست عمومی بوکن را برای تمرین تکنیک‌های شمشیر معرفی می‌کنند؛ یکی از کپشن‌ها آن را خوش‌دست و باکیفیت توصیف می‌کند. نوع چوب، ابعاد، وزن، قیمت و موجودی امروز در منبع تأیید نشده است. برای قیمت و امکان سفارش استعلام بگیرید.",
+      "description_en": "Two public posts show a wooden bokken for sword-technique practice. One caption describes it as comfortable to handle and well made. The wood type, dimensions, weight, current price, and availability are not confirmed. Ask Sensi for a current quote and availability check.",
+      "specifications_fa": { "اطلاعات تأییدشده": "بوکن تمرینی؛ پست‌ها به تمرین تکنیک‌های شمشیر اشاره می‌کنند.", "اطلاعات نامشخص": "نوع چوب، ابعاد، وزن، قیمت و موجودی امروز" },
+      "specifications_en": { "Source-backed details": "Training bokken; the posts mention sword-technique practice.", "Unconfirmed details": "Wood type, dimensions, weight, current price, and availability" }
+    },
+    {
+      "id": "P002", "slug": "martial-arts-tessen", "featured": true, "confidence": "high",
+      "description_fa": "پست‌های سال ۲۰۲۶ این محصول را تسن یا بادبزن رزمی معرفی می‌کنند. تصویر یکی از پست‌ها رنگ‌های قرمز، آبی و مشکی را نشان می‌دهد؛ اینکه این رنگ‌ها امروز قابل سفارش باشند تأیید نشده است.",
+      "description_en": "2026 public posts identify this item as a martial-arts fan, or tessen. One post image shows red, blue, and black examples; current color availability has not been confirmed.",
+      "specifications_fa": { "نام در منبع": "تسن حرفه‌ای / بادبزن رزمی", "رنگ‌های دیده‌شده در تصویر": "قرمز، آبی و مشکی؛ موجودی امروز تأیید نشده" },
+      "specifications_en": { "Source name": "Professional tessen / martial-arts fan", "Colors shown in a post image": "Red, blue, and black; current availability is unconfirmed" }
+    },
+    {
+      "id": "P003", "slug": "bogu-kendo-set", "featured": true, "confidence": "medium",
+      "description_fa": "کپشن عمومی نام «بوگوکن دو» و برند «توزاندو» را ذکر می‌کند و تصویر یک مجموعهٔ محافظ تمرین شامل کلاه و تجهیزات بدن را نشان می‌دهد. مدل دقیق و اجزای داخل بسته باید از فروشنده تأیید شود.",
+      "description_en": "The public caption names “Bogu Kendo” and the brand Tozando. The image shows a training-protection set with a helmet and body gear. The exact model and package contents need seller confirmation.",
+      "specifications_fa": { "نام برند در کپشن": "توزاندو", "محتوای تصویر": "کلاه و تجهیزات محافظ بدن؛ ترکیب دقیق بسته نامشخص" },
+      "specifications_en": { "Brand named in caption": "Tozando", "Shown in the image": "Helmet and body protection; exact package contents are unknown" }
+    },
+    {
+      "id": "P004", "slug": "ninja-weapon-bag", "featured": true, "confidence": "high",
+      "description_fa": "دو پست عمومی برای این کیف جای مخصوص حمل چوب، شمشیر، نانچیکو و شوریکن را ذکر می‌کنند. ابعاد، جنس، گنجایش و موجودی فعلی مشخص نیست.",
+      "description_en": "Two public posts describe dedicated spaces for carrying a staff, sword, nunchaku, and shuriken. Dimensions, material, capacity, and current availability are not specified.",
+      "specifications_fa": { "موارد ذکرشده در کپشن": "چوب، شمشیر، نانچیکو و شوریکن", "اطلاعات نامشخص": "ابعاد، جنس و گنجایش" },
+      "specifications_en": { "Items named in the caption": "Staff, sword, nunchaku, and shuriken", "Unconfirmed details": "Dimensions, material, and capacity" }
+    },
+    {
+      "id": "P005", "slug": "professional-nunchaku", "featured": false, "confidence": "medium",
+      "description_fa": "کپشن پست نانچیکو را حرفه‌ای و خوش‌دست توصیف می‌کند و برای قیمت به دایرکت ارجاع می‌دهد. متن دایرکت قیمت جاری نیست؛ جنس، نوع و موجودی امروز نیز مشخص نشده است.",
+      "description_en": "The post caption describes the nunchaku as professional and comfortable to handle, and directs buyers to direct message for a price. That is not a current price; material, type, and current availability are also unspecified.",
+      "specifications_fa": { "توصیف کپشن": "حرفه‌ای و خوش‌دست", "اطلاعات نامشخص": "جنس، نوع، قیمت و موجودی امروز" },
+      "specifications_en": { "Caption description": "Professional; comfortable to handle", "Unconfirmed details": "Material, type, current price, and availability" }
+    },
+    {
+      "id": "P006", "slug": "ninjutsu-waist-emblem", "featured": false, "confidence": "medium",
+      "description_fa": "پست عمومی دربارهٔ آرم پشت کمر یا نشان سبک نینجوتسو است؛ واژهٔ NINJUTSU روی تصویر دیده می‌شود. جنس، ابعاد، روش نصب و وضعیت فروش فعلی ذکر نشده است.",
+      "description_en": "The public post is about a Ninjutsu waist emblem; the word NINJUTSU is visible in the image. Material, dimensions, attachment method, and current availability are not stated.",
+      "specifications_fa": { "متن دیده‌شده در تصویر": "NINJUTSU", "اطلاعات نامشخص": "جنس، ابعاد و روش نصب" },
+      "specifications_en": { "Text visible in the image": "NINJUTSU", "Unconfirmed details": "Material, dimensions, and attachment method" }
+    },
+    {
+      "id": "P007", "slug": "denim-ninja-uniform", "featured": false, "confidence": "medium",
+      "description_fa": "کپشن لباس جین نینجا را خوش‌فرم، باکیفیت و شیک توصیف می‌کند. تصویر طیف‌هایی از رنگ تیره و آبی را نشان می‌دهد؛ سایزبندی، جنس دقیق پارچه و رنگ‌های قابل سفارش مشخص نیست.",
+      "description_en": "The caption describes the denim ninja uniform as well-fitted, well made, and stylish. The image shows dark and blue tones; sizes, exact fabric, and orderable colors are not specified.",
+      "specifications_fa": { "توصیف کپشن": "لباس جین نینجا؛ خوش‌فرم و شیک", "تنوع دیده‌شده": "طیف تیره/آبی؛ گزینه‌های قابل سفارش تأیید نشده" },
+      "specifications_en": { "Caption description": "Denim ninja uniform; well-fitted and stylish", "Shown variation": "Dark/blue tones; orderable options are unconfirmed" }
+    },
+    {
+      "id": "P008", "slug": "premium-black-ninja-uniform", "featured": false, "confidence": "medium",
+      "description_fa": "تصویر عنوان «لباس اعلا مشکی» را نشان می‌دهد و کپشن آن را مخصوص مربیان، ارشدها و افراد حرفه‌ای معرفی می‌کند. جنس دقیق، سایزبندی و موجودی امروز در منبع نیست.",
+      "description_en": "The image labels this as a premium black uniform, and the caption presents it for instructors, senior ranks, and experienced practitioners. Exact fabric, sizing, and current availability are not stated.",
+      "specifications_fa": { "عنوان تصویر": "لباس اعلا مشکی", "مخاطب ذکرشده در کپشن": "مربیان، ارشدها و افراد حرفه‌ای", "اطلاعات نامشخص": "جنس دقیق و سایزبندی" },
+      "specifications_en": { "Image title": "Premium black uniform", "Audience named in caption": "Instructors, senior ranks, and experienced practitioners", "Unconfirmed details": "Exact fabric and sizing" }
+    },
+    {
+      "id": "P009", "slug": "professional-kama", "featured": false, "confidence": "medium",
+      "description_fa": "کپشن از دستهٔ چوبی و تیغهٔ فلزیِ به‌گفتهٔ فروشنده غیرتیز یاد می‌کند. ادعای ایمنی یا مجاز بودن برای مسابقه مستقلاً تأیید نشده؛ جنس دقیق، قیمت و موجودی امروز نیز مشخص نیست.",
+      "description_en": "The caption describes a wooden handle and a metal blade that the seller says is not sharp. The safety or competition-compliance claim has not been independently verified. Exact materials, current price, and availability are unspecified.",
+      "specifications_fa": { "ادعای کپشن": "دستهٔ چوبی؛ تیغهٔ فلزی که فروشنده غیرتیز توصیف کرده است", "یادآوری": "ادعای ایمنی و مسابقه مستقلاً تأیید نشده" },
+      "specifications_en": { "Caption claim": "Wooden handle; metal blade described by the seller as not sharp", "Note": "Safety and competition claims are not independently verified" }
+    },
+    {
+      "id": "P010", "slug": "hanbo-and-biken", "featured": false, "confidence": "low",
+      "description_fa": "پست اکتبر ۲۰۲۳ از تولید مجدد هانبو و بیکن خبر می‌داد؛ این اطلاعیه موجودی فعلی را ثابت نمی‌کند. راه‌های تماس همان کپشن قدیمی نیز به‌عنوان اطلاعات جاری وارد نشده‌اند.",
+      "description_en": "An October 2023 post announced renewed production of hanbo and biken. That historical announcement does not confirm current stock. Contact details from that old caption are not treated as current.",
+      "specifications_fa": { "منبع": "اطلاعیهٔ تولید مجدد در سال ۲۰۲۳", "وضعیت امروز": "نیازمند تأیید فروشنده" },
+      "specifications_en": { "Source": "A 2023 production announcement", "Current status": "Needs seller confirmation" }
+    },
+    {
+      "id": "P011", "slug": "custom-printed-t-shirt", "featured": false, "confidence": "low",
+      "description_fa": "کپشن ژوئن ۲۰۲۲ امکان چاپ طرح دلخواه را بیان می‌کند و جنس را یک‌رو پنبه، نخی و خنک توصیف می‌کند. این پست تاریخی است؛ رنگ، سایز، قیمت و شرایط فعلی چاپ مشخص نیست.",
+      "description_en": "A June 2022 caption describes custom design printing and single-jersey cotton fabric. It calls the shirt lightweight and cool. This is a historical post; current colors, sizes, pricing, and printing terms are unknown.",
+      "specifications_fa": { "جنس ذکرشده در پست": "یک‌رو پنبه (نخی و خنک)", "امکان ذکرشده": "چاپ طرح انتخابی", "وضعیت امروز": "نیازمند تأیید" },
+      "specifications_en": { "Material named in the post": "Single-jersey cotton; described as lightweight and cool", "Option named in the post": "Custom design printing", "Current status": "Needs confirmation" }
+    },
+    {
+      "id": "P012", "slug": "hand-wrap-hidden-pocket", "featured": false, "confidence": "low",
+      "description_fa": "کپشن فوریهٔ ۲۰۲۲ از روبند دست با جیب مخفی برای نگهداری وسایل نینجا یاد می‌کند. قیمت همان پست تاریخی است و واحد آن روشن نیست؛ قیمت جاری یا موجودی از آن نتیجه‌گیری نمی‌شود.",
+      "description_en": "A February 2022 caption describes a hand wrap with a hidden pocket for carrying ninja gear. Its listed price is historical and the unit is unclear, so it is not used as a current price or availability signal.",
+      "specifications_fa": { "ویژگی ذکرشده در پست": "جیب مخفی", "قیمت تاریخی": "منتشر نمی‌شود؛ واحد/مقیاس نامشخص" },
+      "specifications_en": { "Feature named in the post": "Hidden pocket", "Historical price": "Not published; unit and scale are unclear" }
+    },
+    {
+      "id": "P013", "slug": "imported-katana-shinken", "featured": false, "confidence": "low",
+      "description_fa": "کپشن اکتبر ۲۰۲۱ یک کاتانا/شینکن وارداتی را خوش‌دست توصیف می‌کند و از تعداد محدود در همان زمان می‌گوید. این پست وضعیت فعلی موجودی، جنس یا اندازه را مشخص نمی‌کند.",
+      "description_en": "An October 2021 caption describes an imported katana/shinken as comfortable to handle and says quantities were limited at that time. The post does not establish current stock, material, or dimensions.",
+      "specifications_fa": { "توصیف تاریخی کپشن": "وارداتی و خوش‌دست", "موجودی امروز": "نامشخص" },
+      "specifications_en": { "Historical caption description": "Imported; comfortable to handle", "Current availability": "Unknown" }
+    },
+    {
+      "id": "P014", "slug": "custom-katana", "featured": false, "confidence": "low",
+      "description_fa": "دو پست سال ۲۰۲۱ امکان انتخاب طرح و رنگ تسوبا و غلاف را برای کاتانای سفارشی مطرح می‌کنند. این شرایط تاریخی است و گزینه‌های فعلی یا امکان سفارش باید تأیید شود.",
+      "description_en": "Two 2021 posts describe choosing the design and colors of the tsuba and scabbard for a custom katana. These are historical terms; current options and order availability need confirmation.",
+      "specifications_fa": { "سفارشی‌سازی ذکرشده در پست": "طرح/رنگ تسوبا و غلاف", "وضعیت امروز": "نیازمند تأیید فروشنده" },
+      "specifications_en": { "Customization named in the post": "Tsuba and scabbard design/color", "Current status": "Needs seller confirmation" }
+    },
+    {
+      "id": "P015", "slug": "shi-shin-bo", "featured": false, "confidence": "low",
+      "description_fa": "کپشن سپتامبر ۲۰۲۱ شی‌شین‌بو را خوش‌دست و زیبا توصیف می‌کند و کاربرد آن را اجرای تکنیک‌های سنتی و مدرن نینجا می‌داند. قیمت درج‌شده در آن پست تاریخی و مبهم است و نمایش داده نمی‌شود.",
+      "description_en": "A September 2021 caption describes shi-shin-bo as attractive and comfortable to handle, for traditional and modern ninja techniques. The price in that post is historical and ambiguous, so it is not displayed.",
+      "specifications_fa": { "توصیف کپشن": "خوش‌دست و زیبا", "کاربرد ذکرشده": "تکنیک‌های سنتی و مدرن نینجا", "قیمت تاریخی": "نمایش داده نمی‌شود" },
+      "specifications_en": { "Caption description": "Attractive; comfortable to handle", "Use named in caption": "Traditional and modern ninja techniques", "Historical price": "Not displayed" }
+    },
+    {
+      "id": "P016", "slug": "wooden-kama", "featured": false, "confidence": "low",
+      "description_fa": "کپشن مهٔ ۲۰۲۱ کامای چوبی را از چوب مرغوب و خوش‌دست توصیف می‌کند. قیمت، ابعاد، نوع چوب و وضعیت فروش فعلی از آن پست قابل تأیید نیست.",
+      "description_en": "A May 2021 caption describes the wooden kama as made from good-quality wood and comfortable to handle. The post does not verify a current price, dimensions, wood type, or availability.",
+      "specifications_fa": { "توصیف کپشن": "چوب مرغوب و خوش‌دست", "اطلاعات نامشخص": "قیمت جاری، ابعاد، نوع چوب و موجودی" },
+      "specifications_en": { "Caption description": "Good-quality wood; comfortable to handle", "Unconfirmed details": "Current price, dimensions, wood type, and availability" }
+    }
+  ]
+}

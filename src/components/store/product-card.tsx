@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, Plus } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
 import type { Locale } from "@/i18n/config";
 import { formatMoney } from "@/lib/money";
 import { useStore } from "./store-provider";
@@ -16,10 +17,11 @@ type Product = {
 
 export function ProductCard({ product, locale, labels }: { product: Product; locale: Locale; labels: { quote: string; unavailable: string; add: string; saved: string; chooseOptions: string } }) {
   const { addToCart, wishlist, toggleWishlist } = useStore();
+  const reduceMotion = useReducedMotion();
   const image = product.images[0];
   const price = formatMoney(product.priceMinor, product.currency, locale === "fa" ? "fa-IR" : "en-US");
   const canBuy = product.priceStatus === "confirmed" && price !== null;
-  return <article className="product-card">
+  return <motion.article className="product-card" initial={reduceMotion ? false : { opacity: 0, y: 24, scale: 0.985 }} whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }} whileHover={reduceMotion ? undefined : { y: -6 }} viewport={{ once: true, amount: 0.16 }} transition={{ duration: 0.58, ease: [0.22, 0.8, 0.2, 1] }}>
     <div className="product-card-media">
       <Link href={`/${locale}/product/${product.slug}`} className="product-image-link" aria-label={product.title}>
         {image ? <Image src={image.url} alt={image.alt ?? product.title} fill sizes="(max-width: 650px) 90vw, (max-width: 1000px) 45vw, 25vw" /> : <span className="product-image-empty" aria-hidden="true" />}
@@ -34,5 +36,5 @@ export function ProductCard({ product, locale, labels }: { product: Product; loc
       {canBuy && product.hasVariants && <Link className="product-add" href={`/${locale}/product/${product.slug}`}><Plus size={18} /><span>{labels.chooseOptions}</span></Link>}
       {product.priceStatus === "quote" && <Link className="product-add" href={`/${locale}/product/${product.slug}`}><Plus size={18} /><span>{labels.quote}</span></Link>}
     </div>
-  </article>;
+  </motion.article>;
 }

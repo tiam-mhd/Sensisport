@@ -49,6 +49,7 @@ export default async function ProductPage({ params }: PageProps<"/[locale]/produ
         {product.trackInventory && <p className="muted-text">{copy.product.stock}: {product.variants.length ? product.variants.map((variant) => variant.stock).reduce((sum, stock) => sum + stock, 0) : product.stock}</p>}
         {(product.priceStatus === "quote" || (product.priceStatus === "confirmed" && price)) && <AddProductAction locale={rawLocale} product={{ id: product.id, slug: product.slug, titleFa: product.titleFa, titleEn: product.titleEn, priceMinor: product.priceMinor, currency: product.currency, image: media[0]?.url ?? null, trackInventory: product.trackInventory, variants: product.variants }} labels={{ add: copy.product.add, saved: copy.nav.wishlist, choose: copy.product.options }} />}
         <p className="muted-text product-source-note">{copy.common.sourcePending}</p>
+        {product.sources.length > 0 && <div className="product-source-links"><h2>{rawLocale === "fa" ? "منابع عمومی" : "Public sources"}</h2>{product.sources.map((source) => <a key={source.shortcode ?? source.sourceUrl} href={source.sourceUrl} target="_blank" rel="noreferrer"><span>Instagram · {source.shortcode}</span>{source.postDate && <time dateTime={new Date(source.postDate).toISOString()}>{new Intl.DateTimeFormat(rawLocale === "fa" ? "fa-IR" : "en-US", { dateStyle: "medium", timeZone: "UTC" }).format(new Date(source.postDate))}</time>}</a>)}</div>}
       </div>
     </div>
   </div>;

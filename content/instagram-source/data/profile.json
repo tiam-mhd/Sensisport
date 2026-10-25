@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "capture_date": "2026-10-25",
+  "source_url": "https://www.instagram.com/sensi_sport/",
+  "handle": "sensi_sport",
+  "display_name": "تولیدی سنسی(نینجا،سامورایی)",
+  "bio_fa": [
+    "📢جامع ترین تولیدی لوازم و تجهیزات نینجا و سامورایی",
+    "کانال تلگرام 👇"
+  ],
+  "external_links": [
+    {
+      "label": "Telegram channel",
+      "url": "https://t.me/Sensi_Sport"
+    }
+  ],
+  "profile_image": "assets/profile/avatar.jpg",
+  "profile_image_description": "لوگوی قرمز Sensi روی زمینهٔ سفید؛ تصویر آواتار عمومی پروفایل.",
+  "public_metrics_snapshot": {
+    "followers": 4804,
+    "following": 5577,
+    "observed_on": "2026-10-25",
+    "warning": "مقادیر لحظه‌ای و قابل تغییر هستند؛ برای نمایش در سایت منبع جاری لازم است."
+  },
+  "scope_note_fa": "این داده‌ها فقط بر اساس صفحه و محتوای عمومی‌ای است که در تاریخ ثبت، بدون ورود به حساب قابل مشاهده بود."
+}

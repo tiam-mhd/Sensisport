@@ -13,6 +13,8 @@
     "typecheck": "tsc --noEmit",
     "db:new-migration": "tsx scripts/new-migration.ts",
     "db:migrate": "node scripts/migrate.mjs",
+    "db:seed-instagram": "node scripts/seed-instagram.mjs",
+    "instagram:audit": "node scripts/generate-instagram-audit.mjs",
     "db:seed-admin": "node scripts/bootstrap-admin.mjs",
     "db:studio": "drizzle-kit studio",
     "test": "tsx --test tests/money.test.ts tests/validation.test.ts"

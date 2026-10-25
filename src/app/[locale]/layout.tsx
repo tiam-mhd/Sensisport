@@ -1,9 +1,19 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { connection } from "next/server";
+import localFont from "next/font/local";
 import { StoreProvider } from "@/components/store/store-provider";
 import { isLocale, locales } from "@/i18n/config";
 import "./styles.css";
+
+const estedad = localFont({
+  src: "../../../public/fonts/estedad-variable.woff2",
+  variable: "--font-estedad",
+  weight: "100 900",
+  style: "normal",
+  display: "swap",
+  preload: true,
+});
 
 export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Promise<Metadata> {
   await connection();
@@ -21,7 +31,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
     openGraph: {
       type: "website",
       siteName: "Sensi Sport",
-      images: [{ url: "/images/hero/ninja-hero.png", width: 3840, height: 2160, alt: "Sensi Sport hero image" }],
+      images: [{ url: "/images/hero/ninja-hero.webp", width: 3840, height: 2160, alt: "Sensi Sport hero image" }],
     },
   };
 }
@@ -34,6 +44,6 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   return <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"}>
-    <body className={`locale-${locale}`}><a className="skip-link" href="#main-content">{locale === "fa" ? "رفتن به محتوای اصلی" : "Skip to content"}</a><StoreProvider>{children}</StoreProvider></body>
+    <body className={`${estedad.variable} locale-${locale}`}><a className="skip-link" href="#main-content">{locale === "fa" ? "رفتن به محتوای اصلی" : "Skip to content"}</a><StoreProvider>{children}</StoreProvider></body>
   </html>;
 }
