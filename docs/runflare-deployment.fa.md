@@ -6,56 +6,84 @@
 2. سرویس PostgreSQL جدا در همان پروژهٔ Runflare؛
 3. فضای ذخیره‌سازی S3-compatible بیرونی برای تصاویر محصول.
 
-مستندات Runflare مسیر ساخت پروژه/سرویس، انتشار CLI، اتصال پایگاه داده، تنظیم دامنه و SSL را توضیح می‌دهند: [شروع کار](https://runflare.com/docs/get-started/)، [ساخت سرویس](https://runflare.com/docs/create-service/)، [سرویس Docker](https://runflare.com/هاست-ابری-docker/)، [PostgreSQL](https://runflare.com/docs/postgres/)، [انتشار با CLI](https://runflare.com/docs/work-with-cli/cli-deploy/).
+برای انتشار این مخزن از **سرویس Docker با اتصال GitHub** استفاده کنید. منابع رسمی مربوط: [ساخت پروژه و برنامه Docker](https://docs.runflare.com/docker/docker-create-app/)، [اتصال GitHub و Auto Pull](https://docs.runflare.com/docker/deploy-github/)، [متغیرهای محیطی Docker](https://docs.runflare.com/docker/docker-environment-variable/)، [اتصال داخلی PostgreSQL](https://runflare.com/docs/postgres/)، [دامنه برای Docker](https://docs.runflare.com/docker/docker-add-domain/) و [پشتیبان‌گیری](https://runflare.com/docs/backup/how-to-generate-backup/).
 
-## ۱. آماده‌سازی مخزن
+## ۱. چه چیزهایی بسازم؟
 
-- `Dockerfile` را در ریشهٔ مخزن نگه دارید و تمام مخزن را از ریشه deploy کنید تا فایل‌های `package.json`، lockfile و پوشهٔ `public` در build context باشند.
-- فایل `.dockerignore` فایل‌های `.env`، `node_modules`، `.next` و اسناد داخلی `0-DOCS` را از build context کنار می‌گذارد.
-- `.gitignore` فایل‌های محرمانه و خروجی build را از Git و انتشار CLI کنار می‌گذارد. `.env.example` فقط نمونهٔ متغیرهاست و راز واقعی در آن قرار ندهید.
-- پیش از انتشار، روی ماشینی با دسترسی npm، وابستگی‌ها را با Node.js 22 نصب و lockfile تولید کنید (`npm install`). lockfile را در مخزن نگه دارید تا انتشارهای بعدی تکرارپذیر باشند. Dockerfile در نبود lockfile برای راه‌اندازی اولیه از `npm install` استفاده می‌کند و پس از افزودن lockfile به `npm ci` برمی‌گردد.
+در یک پروژه و یک location این دو deployment را بسازید:
 
-## ۲. ساخت پروژه و سرویس‌ها در Runflare
+| نوع | نام پیشنهادی | تنظیم اصلی |
+| --- | --- | --- |
+| برنامه Docker | `sensisport-web` | از Dockerfile ریشهٔ مخزن؛ پورت کانتینر `3000` |
+| دیتابیس PostgreSQL | `sensisport-db` | نسخهٔ 16 در صورت انتخاب نسخه؛ فقط دسترسی داخلی |
 
-1. در پنل Runflare یک پروژه بسازید.
-2. در همان پروژه یک سرویس Docker برای اپلیکیشن بسازید و منبع آن را به مخزن/شاخهٔ موردنظر متصل کنید یا از CLI استفاده کنید. اگر اتصال Git را برگزیدید، دسترسی مخزن را مطابق [راهنمای GitHub](https://runflare.com/docs/ci-cd-setup/how-to-add-github/) یا [راهنمای GitLab](https://runflare.com/docs/ci-cd-setup/how-to-add-gitlab/) تنظیم کنید.
-3. سرویس PostgreSQL جداگانه بسازید. منابع CPU، حافظه و دیسک را بر مبنای بار واقعی و پلن حساب خود انتخاب کنید؛ مخزن مقدار ثابتی برای این موارد فرض نمی‌کند.
-4. از مشخصات اتصال PostgreSQL در پنل، hostname داخلی، نام پایگاه داده، کاربر، گذرواژه و پورت را بردارید. بین سرویس‌های هم‌پروژه از نشانی داخلی استفاده کنید؛ پورت `5432` معمولاً فقط وقتی لازم است که پنل URI کامل بخواهد. دسترسی عمومی پایگاه داده را فعال نکنید مگر برای نیاز جداگانه و کنترل‌شده. جزئیات را با [راهنمای PostgreSQL Runflare](https://runflare.com/docs/postgres/) تطبیق دهید.
-5. یک فضای S3-compatible بیرونی بسازید و bucket و کلیدهای محدود به همان bucket را آماده کنید. endpoint عمومی/خصوصی، region و روش path-style باید با ارائه‌دهندهٔ ذخیره‌سازی انتخابی هماهنگ باشد.
+فایل‌های محصول در فضای S3-compatible بیرونی قرار می‌گیرند؛ این مورد deployment رانفلر نیست. یک bucket خصوصی بسازید و endpoint و کلیدهای محدود به همان bucket را بگیرید. برنامه bucket را هنگام اولین upload می‌تواند بسازد، اما ساخت دستی bucket از قبل و دادن مجوز حداقلی `Head/List`, `Get`, `Put`, `Delete` مناسب‌تر است.
 
-## ۳. متغیرهای محیطی سرویس وب
+دو deployment بالا در یک پروژه باشند تا برنامه با hostname داخلی دیتابیس وصل شود. برای PostgreSQL دامنهٔ عمومی یا پورت ورودی باز نکنید؛ Runflare در اتصال داخلی استفاده از hostname دیتابیس را پشتیبانی می‌کند و پورت در صورت نیاز `5432` است. در این حالت Network جداگانه‌ای لازم نیست.
 
-مقادیر را در تنظیمات محیطی سرویس وب در پنل وارد کنید. secret واقعی را داخل Git یا فایل Docker image نگذارید.
+منابع در Runflare در سطح پروژه محدود و بین سرویس‌ها تقسیم می‌شوند. برای تست اولیه می‌توانید از پلن رایگان فعلی استفاده کنید؛ صفحهٔ رسمی آن 3GB RAM، حدود 1.5GHz CPU، 3GB دیسک و 2 deployment را برای 3 ماه نشان می‌دهد، اما backup ندارد. آن را فقط برای تست انتخاب کنید. برای فروش واقعی پلنی بگیرید که backup داشته باشد و مجموع RAM/CPU/disk کافی برای هر دو سرویس بدهد؛ مصرف و قیمت را پیش از سفارش در [صفحهٔ Docker و پلن‌ها](https://runflare.com/هاست-ابری-docker/) دوباره بررسی کنید. این پروژه برای توسعه نیازمند build چندمرحله‌ای Next.js است؛ اگر build با کمبود RAM شکست خورد منابع برنامه را بالا ببرید.
 
-| متغیر | مقدار تولید |
-| --- | --- |
-| `NODE_ENV` | `production` |
-| `PORT` | `3000` |
-| `HOSTNAME` | `0.0.0.0` |
-| `APP_URL` | نشانی نهایی HTTPS سایت؛ فعلاً `https://sensishop.timocode.ir`، و هنگام تعویض دامنه همین مقدار را به‌روز کنید |
-| `DATABASE_URL` | URI PostgreSQL با hostname خصوصی سرویس Runflare |
-| `DB_POOL_MAX` | از `5` شروع کنید و با تعداد replica و سقف اتصال DB هماهنگ کنید |
-| `AUTH_SECRET` | راز تصادفی حداقل ۳۲ بایتی؛ جدا از هر محیط دیگر |
-| `AUTH_COOKIE_SECURE` | `true` |
-| `S3_ENDPOINT` | endpoint فضای S3-compatible |
-| `S3_REGION` | region موردنیاز ارائه‌دهنده |
-| `S3_BUCKET` | نام bucket تصاویر محصول |
-| `S3_ACCESS_KEY_ID` | کلید محدود به bucket |
-| `S3_SECRET_ACCESS_KEY` | secret همان کلید |
-| `S3_FORCE_PATH_STYLE` | بر اساس endpoint؛ برای endpointهای سازگار با path-style معمولاً `true` |
-| `PAYMENT_PROVIDER` | `none` تا زمانی که درگاه واقعی و adapter آن پیاده‌سازی و تأیید نشده باشد |
+برای شروع کم‌ترافیک، تخصیص تخمینی **۲GB RAM / 1GHz CPU / 3GB disk برای Docker** و **۱GB RAM / 0.5GHz CPU / 5GB disk برای PostgreSQL** در نظر بگیرید؛ جمع منابع این دو ردیف باید داخل پلن پروژه جا شود. این تخمین تضمین عملکرد نیست؛ با خطاهای build و آمار واقعی منابع را تنظیم کنید. پلن رایگان 3GB دیسک دارد و این تقسیم‌بندی را پوشش نمی‌دهد.
 
-برای ساخت secret می‌توان محلی اجرا کرد و خروجی را مستقیماً در پنل وارد کرد:
+## ۲. ساخت پروژه و سرویس‌ها
+
+1. در پنل Runflare روی **ایجاد پروژه** بزنید؛ شناسهٔ پیشنهادی `sensisport` است. لوکیشن را متناسب با کاربران فروشگاه انتخاب کنید.
+2. در بخش سرویس‌های پروژه، نوع **Docker** را انتخاب و برنامه‌ای به نام `sensisport-web` بسازید. سورس از ریشهٔ GitHub می‌آید و Dockerfile در ریشهٔ مخزن است. اگر پنل پورت کانتینر می‌خواهد، `3000` را ثبت کنید.
+3. از بخش دیتابیس‌ها در همان پروژه، **PostgreSQL** بسازید. نام پیشنهادی `sensisport-db` است. اگر پنل اجازه می‌دهد database و user جداگانه بسازید، `sensishop` و یک user اختصاصی انتخاب کنید؛ در غیر این صورت مشخصات تولیدشده در جزئیات سرویس را استفاده کنید.
+4. بعد از ساخت دیتابیس، hostname داخلی، database، username و password را از صفحهٔ جزئیات آن بردارید. URL تولیدشدهٔ پنل را ترجیح دهید؛ اگر URL را دستی می‌سازید، password دارای نویسه‌های ویژه باید URL-encode شود.
+5. هیچ port forwarding یا دسترسی عمومی برای دیتابیس تنظیم نکنید. `DATABASE_URL` برنامه باید hostname داخلی دیتابیس همین پروژه را استفاده کند، نه `localhost`.
+
+Runflare منابع پروژه را بین deploymentها تقسیم می‌کند؛ تعداد deployment موردنیاز را حداقل 2 بگیرید. [راهنمای ساخت پروژه](https://runflare.com/docs/create-project/) و [راهنمای ساخت Docker item](https://docs.runflare.com/docker/docker-create-app/) مراحل پنل را نشان می‌دهند.
+
+## ۳. اتصال مخزن GitHub
+
+1. در جزئیات سرویس Docker گزینهٔ **اتصال به مخزن Git** را باز کنید و روش **GitHub OAuth App** را انتخاب کنید.
+2. Runflare را در GitHub مجاز کنید و فقط مخزن `Sensisport` را به آن دسترسی دهید.
+3. مخزن `tiam-mhd/Sensisport` و branch `main` را انتخاب و ذخیره کنید.
+4. جدیدترین commit روی `main` را در فهرست commitها انتخاب و deploy/revert کنید.
+5. گزینهٔ **Auto Pull** را روشن کنید تا pushهای بعدی به `main` خودکار به‌روزرسانی شوند.
+
+این مخزن public است؛ روش OAuth App پیشنهادی است و نیازی به ساخت Personal Access Token کلاسیک ندارد. جزئیات را در [راهنمای رسمی استقرار Docker با GitHub](https://docs.runflare.com/docker/deploy-github/) ببینید.
+
+در مخزن فعلی هنوز `package-lock.json` نیست؛ Dockerfile برای این مرحله از `npm install` استفاده می‌کند. پس از در دسترس بودن npm registry، `npm install` را اجرا و lockfile را commit کنید تا buildهای بعدی با `npm ci` تکرارپذیر شوند.
+
+## ۴. متغیرهای محیطی سرویس وب
+
+در تنظیمات سرویس Docker، بخش **متغیر محیطی** را باز کنید. Bulk Edit فایل `NAME=value` را می‌پذیرد. برای مقدارهای زیر که با `<...>` مشخص شده‌اند، قبل از ذخیره مقدار واقعی را جایگزین کنید؛ آن‌ها را با براکت عیناً ذخیره نکنید.
+
+```dotenv
+NODE_ENV=production
+PORT=3000
+HOSTNAME=0.0.0.0
+APP_URL=https://sensishop.timocode.ir
+DATABASE_URL=postgresql://<DB_USER>:<URL_ENCODED_DB_PASSWORD>@<PRIVATE_DB_HOST>:5432/<DB_NAME>
+DB_POOL_MAX=5
+AUTH_SECRET=<GENERATE_A_UNIQUE_SECRET>
+AUTH_COOKIE_SECURE=true
+S3_ENDPOINT=<S3_PROVIDER_ENDPOINT>
+S3_REGION=<S3_PROVIDER_REGION>
+S3_BUCKET=sensisport-media
+S3_ACCESS_KEY_ID=<S3_ACCESS_KEY>
+S3_SECRET_ACCESS_KEY=<S3_SECRET_KEY>
+S3_FORCE_PATH_STYLE=true
+PAYMENT_PROVIDER=none
+```
+
+`PORT` و `HOSTNAME` در Dockerfile هم تنظیم شده‌اند؛ اگر پنل خودش port را می‌گیرد، همچنان port کانتینر باید `3000` باشد. `APP_URL` را فقط بعد از آماده‌شدن HTTPS نهایی کنید. اگر دامنه عوض شد، همین مقدار را هم عوض کنید.
+
+برای ساخت `AUTH_SECRET` روی ویندوز Node.js 22:
 
 ```powershell
 node -e "console.log(require('node:crypto').randomBytes(32).toString('base64url'))"
 ```
 
-این پروژه از `.env` داخل سرویس تولید استفاده نمی‌کند. هر متغیر تازه‌ای که در کد سرور خوانده شد باید در پنل هم افزوده شود. کلیدهای S3 و `AUTH_SECRET` را برای کاربر عمومی یا build log چاپ نکنید.
+در بخش **Secrets** پروژه secretهایی برای `DATABASE_URL`، `AUTH_SECRET` و `S3_ACCESS_KEY_ID` و `S3_SECRET_ACCESS_KEY` بسازید؛ سپس در تنظیم محیطی سرویس Docker برای هرکدام **Mode=Secret** را انتخاب و secret مربوط را متصل کنید. متغیرهای دیگر را **Manual** بگذارید. همه را روی **Use case=Running** تنظیم کنید؛ این برنامه متغیرهای `NEXT_PUBLIC_*` ندارد و تنظیم Build برای این مقادیر لازم نیست. `S3_REGION` و `S3_FORCE_PATH_STYLE` را مطابق ارائه‌دهنده انتخاب کنید. Secret واقعی را در Git، این فایل راهنما یا Docker image نگذارید. راهنمای [Bulk Edit و Secret/Running](https://docs.runflare.com/docker/docker-environment-variable/) جزئیات پنل را شرح می‌دهد.
 
-## ۴. build و انتشار
+## ۵. اجرا و بررسی deploy
 
-مستند نصب CLI رسمی Runflare فرمان Windows را این‌طور ارائه می‌کند: [نصب و ارتقای CLI](https://runflare.com/docs/work-with-cli/install-and-upgrade-cli/). در PowerShell:
+با GitHub integration، Runflare سورس و Dockerfile را از branch انتخاب‌شده دریافت می‌کند. build از Dockerfile انجام می‌شود؛ دستور build یا start جداگانه در پنل نگذارید. برنامه داخل کانتینر روی `3000` گوش می‌دهد و Docker healthcheck مسیر `/api/health` را می‌خواند.
+
+اگر GitHub integration در دسترس نبود، جایگزین CLI است. نصب Windows طبق [راهنمای CLI](https://docs.runflare.com/docker/deploy-cli/):
 
 ```powershell
 Invoke-WebRequest -Uri https://get.runflare.com/install.bat -OutFile .\install.bat
@@ -63,44 +91,57 @@ Invoke-WebRequest -Uri https://get.runflare.com/install.bat -OutFile .\install.b
 runflare login
 ```
 
-در مخزن، از ریشهٔ پروژه اجرا کنید:
+از ریشهٔ repository اجرا کنید:
 
 ```powershell
 runflare deploy
 ```
 
-در اولین انتشار، پروژه و سرویس ساخته‌شده در پنل را در CLI انتخاب کنید. انتشارهای بعدی را هم از همان ریشه انجام دهید تا Dockerfile، کد، lockfile و دارایی hero در context باشند. طبق راهنمای CLI، `runflare deploy -y` برای استفاده از انتخاب‌های cache شده است؛ پیش از استفاده مطمئن شوید مقصد انتخاب‌شده درست است. وضعیت و log را با فرمان‌های زیر بررسی کنید:
+در اولین deploy، پروژه و Docker item را انتخاب کنید. وضعیت را در سابقهٔ deployment یا با CLI بررسی کنید:
 
 ```powershell
 runflare events
 runflare logs -f
 ```
 
-CLI از `.gitignore` برای حذف فایل‌های محلی پیروی می‌کند. جزئیات و فرمان‌های مجاز دیگر در [راهنمای فرمان‌های CLI](https://runflare.com/docs/work-with-cli/cli-commands/) آمده است. اگر به‌جای CLI، اتصال مخزن را انتخاب کرده‌اید، شاخه و دسترسی webhook را در پنل طبق راهنمای CI/CD تنظیم کنید.
-
-## ۵. دامنه، DNS و TLS
-
-دامنهٔ فعلی فقط مقدار شروع است؛ با تغییر دامنه، مقدار `APP_URL` و تنظیم DNS را عوض کنید.
-
-1. در بخش Domains پنل، `sensishop.timocode.ir` را بدون `https://` و بدون `www` اضافه کنید.
-2. مقادیر DNS را که پنل نشان می‌دهد در DNS provider ثبت کنید. اگر Cloudflare یا Arvan DNS با proxy روشن استفاده می‌شود، هر دو مقدار IP و TXT موردنیاز پنل را ثبت و وضعیت proxy را طبق همان راهنما تنظیم کنید.
-3. پس از propagation، دامنه را به سرویس وب متصل کنید.
-4. گواهی رایگان Runflare را برای دامنه فعال کنید یا گواهی و private key خود را وارد کنید. فقط پس از فعال‌شدن TLS مقدار `APP_URL` را روی `https://sensishop.timocode.ir` بگذارید.
-
-راهنماهای رسمی: [افزودن دامنه](https://runflare.com/docs/how-to-add-domain/)، [اتصال دامنه به سرویس](https://runflare.com/docs/add-domain-to-service/)، [SSL](https://runflare.com/docs/how-to-work-with-ssl/).
+CLI از `.gitignore` پیروی می‌کند؛ command `runflare deploy -y` فقط برای مقصد cache‌شده است. جزئیات در [فرمان‌های CLI](https://runflare.com/docs/work-with-cli/cli-commands/) است.
 
 ## ۶. migration و مدیر اولیه
 
-پس از آماده‌شدن PostgreSQL و متغیرهای محیطی:
+بعد از اینکه PostgreSQL ساخته شد و `DATABASE_URL` روی سرویس Docker ذخیره شد:
 
-1. یک‌بار دستور `npm run db:migrate` را با همان `DATABASE_URL` تولید اجرا کنید. این فرمان فایل‌های SQL شماره‌دار را با advisory lock و checksum ثبت می‌کند. می‌توان آن را از محیطی اجرا کرد که به hostname خصوصی PostgreSQL دسترسی دارد، یا در یک job/اجرای موقت مورداعتماد همان پروژه؛ آن را در هر replica از شروع برنامه اجرا نکنید.
-2. حساب اولیه را با `ADMIN_EMAIL` و `ADMIN_PASSWORD` در تنظیمات اجرای موقت همان سرویس Docker یا job مورداعتماد تنظیم و `npm run db:seed-admin` را یک‌بار اجرا کنید. اسکریپت‌ها و SQL migration در ایمیج قرار دارند؛ `pg` از وابستگی‌های runtime برنامه است. گذرواژهٔ واقعی را بعد از اجرا از محیط موقت حذف کنید.
-3. ورود مدیر را در `/fa/admin/login` بازبینی کنید.
-4. `/api/health` باید پاسخ سلامت فرایند و `/api/ready` باید پاسخ اتصال پایگاه داده بدهد. Docker image healthcheck فقط `/api/health` را می‌سنجد؛ مسیر آماده‌بودن DB جداگانه در دسترس است.
+1. در پنل Runflare وارد Terminal همان Docker item شوید؛ مسیر کاری ایمیج `/app` است.
+2. migration اولیه را یک‌بار اجرا کنید:
 
-اسکریپت seed فقط در نبود مدیر حساب می‌سازد و اجرای دوباره را رد می‌کند. برای مهاجرت‌های بعدی `npm run db:new-migration -- add_a_short_name` را اجرا کنید، SQL را با `src/db/schema.ts` هماهنگ و بازبینی کنید، سپس آن را یک‌بار پیش از rollout برنامه اجرا کنید. فایل migration ثبت‌شده را تغییر ندهید.
+```sh
+cd /app
+npm run db:migrate
+```
 
-## ۷. بررسی پس از انتشار
+3. موقتاً در Secrets پروژه `ADMIN_PASSWORD` را بسازید و در متغیرهای محیطی سرویس `ADMIN_EMAIL` و `ADMIN_PASSWORD` را اضافه کنید. برای password از Mode=Secret و برای هر دو Use case=Running استفاده کنید. ذخیره کنید و اگر پنل درخواست کرد سرویس را restart کنید.
+4. در همان Terminal مدیر اول را بسازید:
+
+```sh
+cd /app
+npm run db:seed-admin
+```
+
+گذرواژه باید یکتا و ۱۶ تا ۲۰۰ نویسه باشد. پس از پیام موفقیت، `ADMIN_EMAIL` و `ADMIN_PASSWORD` را از متغیرهای سرویس حذف و آن را restart کنید. اسکریپت فقط اولین مدیر را می‌سازد و اجرای دوباره را رد می‌کند. مستندات Docker Runflare دسترسی Terminal درون سرویس را معرفی می‌کند: [سرویس Docker](https://runflare.com/هاست-ابری-docker/).
+
+در deployهای بعدی migrationها را خودکار در هر replica اجرا نکنید. migration تازه را با `npm run db:new-migration -- add_a_short_name` بسازید، SQL را با `src/db/schema.ts` هماهنگ کنید و پیش از rollout، یک‌بار از Terminal اجرا کنید. فایل‌های migration اجراشده با checksum محافظت می‌شوند و نباید ویرایش شوند.
+
+## ۷. دامنه، DNS و TLS
+
+دامنهٔ فعلی فقط مقدار شروع است؛ با تغییر دامنه، مقدار `APP_URL` و تنظیم DNS را عوض کنید.
+
+1. در تنظیمات دامنهٔ پروژه `sensishop.timocode.ir` را بدون `https://` و `www` اضافه کنید.
+2. مقدارهای DNS را عیناً از پنل Runflare در DNS provider دامنه ثبت کنید. اگر CDN/proxy دارید، رکورد TXT تأیید مالکیت را هم اگر پنل خواست اضافه کنید؛ IP/TXT را حدس نزنید.
+3. پس از فعال‌شدن دامنه، در جزئیات آن گزینهٔ اتصال به سرویس را بزنید و `sensisport-web` را انتخاب کنید.
+4. در تنظیم SSL، گواهی رایگان Runflare را انتخاب و ذخیره کنید. پس از فعال‌شدن HTTPS مقدار `APP_URL` را در متغیرهای سرویس روی `https://sensishop.timocode.ir` قرار دهید و سرویس را restart کنید.
+
+DNS دامنهٔ `.ir` ممکن است چند ساعت برای propagation زمان بخواهد. مراحل رسمی: [افزودن دامنه به Docker](https://docs.runflare.com/docker/docker-add-domain/) و [SSL](https://runflare.com/docs/how-to-work-with-ssl/).
+
+## ۸. بررسی پس از انتشار
 
 - دامنه را با HTTPS باز کنید و هر دو زبان `/fa` و `/en`، صفحهٔ فروشگاه خالی، ورود مدیر و صفحهٔ تنظیمات را بررسی کنید.
 - `/api/health` و `/api/ready` را جداگانه بررسی کنید.
@@ -108,6 +149,6 @@ CLI از `.gitignore` برای حذف فایل‌های محلی پیروی می
 - یک تصویر غیرواقعی به کاتالوگ اضافه نکنید. پیش از انتشار محصول باید پست رسمی، متن و گزینه‌های قابل مشاهده، وضعیت قیمت و تصویر مرجع آن بررسی شود.
 - درگاه واقعی متصل نیست؛ سفارش پرداختی تولیدی ثبت نمی‌شود. ثبت درخواست استعلام قیمت می‌تواند بدون مبلغ انجام شود.
 
-## ۸. پشتیبان‌گیری و بازگردانی
+## ۹. پشتیبان‌گیری و بازگردانی
 
-برای PostgreSQL برنامهٔ پشتیبان‌گیری منظم و نگهداری خارج از چرخهٔ deploy تنظیم کنید و پیش از هر تغییر پرریسک نسخهٔ قابل بازگردانی داشته باشید. مستند Runflare روندهای [ساخت پشتیبان](https://runflare.com/docs/backup/how-to-generate-backup/) و [بازگردانی](https://runflare.com/docs/backup/how-to-restore-backup/) را شرح می‌دهد؛ بررسی کنید نوع سرویس و پلن شما از همان روند پشتیبانی کند. بازیابی پایگاه داده و بازیابی bucket تصاویر دو کار جدا هستند؛ برای هر دو نسخهٔ پشتیبان مستقل نگه دارید.
+از بخش backup دیتابیس پیش از تغییر schema نسخهٔ پشتیبان بگیرید و بازگردانی را طبق [راهنمای رسمی](https://runflare.com/docs/backup/how-to-restore-backup/) انجام دهید. bucket تصاویر بیرونی است و جداگانه باید backup شود. پلن رایگان Runflare backup ندارد.
