@@ -25,6 +25,9 @@ export default async function ProductPage({ params }: PageProps<"/[locale]/produ
   const copy = getMessages(rawLocale);
   const price = formatMoney(product.priceMinor, product.currency, rawLocale === "fa" ? "fa-IR" : "en-US");
   const media = product.images;
+  const priceFractionDigits = product.currency
+    ? new Intl.NumberFormat("en-US", { style: "currency", currency: product.currency }).resolvedOptions().maximumFractionDigits ?? 2
+    : 2;
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -33,7 +36,7 @@ export default async function ProductPage({ params }: PageProps<"/[locale]/produ
     ...(media.length ? { image: media.map((item) => new URL(item.url, process.env.APP_URL ?? "http://localhost:3000").toString()) } : {}),
     ...(product.categoryName ? { category: product.categoryName } : {}),
     ...(product.sku ? { sku: product.sku } : {}),
-    ...(product.priceStatus === "confirmed" && product.priceMinor !== null && product.currency ? { offers: { "@type": "Offer", priceCurrency: product.currency, price: product.priceMinor / (10 ** new Intl.NumberFormat("en-US", { style: "currency", currency: product.currency }).resolvedOptions().maximumFractionDigits), ...(product.trackInventory ? { availability: (product.variants.length ? product.variants.some((variant) => variant.stock > 0) : product.stock > 0) ? "https://schema.org/InStock" : "https://schema.org/OutOfStock" } : {}) } } : {}),
+    ...(product.priceStatus === "confirmed" && product.priceMinor !== null && product.currency ? { offers: { "@type": "Offer", priceCurrency: product.currency, price: product.priceMinor / (10 ** priceFractionDigits), ...(product.trackInventory ? { availability: (product.variants.length ? product.variants.some((variant) => variant.stock > 0) : product.stock > 0) ? "https://schema.org/InStock" : "https://schema.org/OutOfStock" } : {}) } } : {}),
   };
   return <div className="page-shell container product-detail">
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />

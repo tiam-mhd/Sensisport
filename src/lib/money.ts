@@ -9,7 +9,7 @@ export function isSafeMinorAmount(value: number): boolean {
 export function formatMoney(minorAmount: number | null, currency: string | null, locale: string): string | null {
   if (minorAmount === null || currency === null || !isSafeMinorAmount(minorAmount) || !isCurrencyCode(currency)) return null;
   try {
-    const fractionDigits = new Intl.NumberFormat(locale, { style: "currency", currency }).resolvedOptions().maximumFractionDigits;
+    const fractionDigits = new Intl.NumberFormat(locale, { style: "currency", currency }).resolvedOptions().maximumFractionDigits ?? 2;
     const majorAmount = minorAmount / 10 ** fractionDigits;
     return new Intl.NumberFormat(locale, { style: "currency", currency, maximumFractionDigits: fractionDigits }).format(majorAmount);
   } catch {

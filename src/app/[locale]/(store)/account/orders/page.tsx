@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { desc, eq } from "drizzle-orm";
 import { getDb } from "@/db";
 import { orderItems, orders } from "@/db/schema";
@@ -12,7 +13,7 @@ export const dynamic = "force-dynamic";
 
 export default async function AccountOrdersPage({ params }: PageProps<"/[locale]/account/orders">) {
   const { locale } = await params;
-  if (!isLocale(locale)) notFound();
+  if (!isLocale(locale)) return notFound();
   const copy = getMessages(locale);
   const user = await currentUser();
   if (!user) return <div className="page-shell container"><div className="empty-panel"><h1>{copy.account.login}</h1><Link className="button button-primary" href={`/${locale}/account/login`}>{copy.account.login}</Link></div></div>;

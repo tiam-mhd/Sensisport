@@ -11,14 +11,13 @@ export function CheckoutForm({ locale, labels, shippingMethods, paymentAvailable
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const isFa = locale === "fa";
+  const isQuoteRequest = cart.some((item) => item.priceMinor === null || !item.currency) || !paymentAvailable;
 
   async function submit(formData: FormData) {
     setError("");
     if (!cart.length) { setError(labels.emptyCart); return; }
     setBusy(true);
     const items = cart.map(({ productId, variantId, quantity }) => ({ productId, variantId, quantity }));
-    const hasQuoteItem = cart.some((item) => item.priceMinor === null || !item.currency);
-    const isQuoteRequest = hasQuoteItem || !paymentAvailable;
     const endpoint = isQuoteRequest ? "/api/quote" : "/api/checkout";
     const payload = Object.fromEntries(formData.entries());
     try {
