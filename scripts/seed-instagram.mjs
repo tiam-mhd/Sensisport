@@ -92,6 +92,9 @@ try {
     let sourceId = found.rows[0]?.id;
     if (!sourceId) {
       const variants = product ? { fa: product.variants_fa ?? [], en: [] } : null;
+      // The detailed source-pack price labels stay in the audit JSON. Database price status
+      // describes current verification, and none of the historical Instagram prices is current.
+      const sourcePriceStatus = product ? "unverified" : "not_a_product_post";
       const inserted = await client.query(
         `INSERT INTO instagram_sources (
            source_url, shortcode, post_date, caption_excerpt, product_name, category,
@@ -107,7 +110,7 @@ try {
           product?.category_fa ?? null,
           variants ? JSON.stringify(variants) : null,
           product?.source_price_text ?? null,
-          product?.price_status ?? "not_a_product_post",
+          sourcePriceStatus,
           post.site_image_path,
           product?.confidence ?? "source-pack",
         ],
