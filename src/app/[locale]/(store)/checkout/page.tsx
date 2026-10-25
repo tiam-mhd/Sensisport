@@ -6,6 +6,8 @@ import { isLocale } from "@/i18n/config";
 import { paymentReadiness } from "@/lib/checkout/payment";
 import { getMessages } from "@/lib/messages";
 
+export const dynamic = "force-dynamic";
+
 export default async function CheckoutPage({ params }: PageProps<"/[locale]/checkout">) {
   const { locale } = await params;
   if (!isLocale(locale)) return null;
